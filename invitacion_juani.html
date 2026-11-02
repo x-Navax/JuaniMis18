@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="Juani cumple 18. Te esperamos para celebrar el 5 de diciembre de 2026 en Casa Viale Eventos.">
+  <title>Juani · Mis 18</title>
+  <style>
+    :root{color-scheme:dark;--gold:#d6b66c;--gold-light:#f3dfa5;--black:#090909;--muted:#b9b5ab}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--black);color:#f6f2e9;font-family:Georgia,'Times New Roman',serif}
+    .page{min-height:100svh;display:grid;place-items:center;padding:25px;overflow:hidden;position:relative;background:radial-gradient(ellipse at 50% 38%,#1b1914 0%,#0d0d0c 43%,#070707 100%)}
+    .page:before,.page:after{content:"";position:absolute;inset:18px;border:1px solid rgba(214,182,108,.42);pointer-events:none}
+    .page:after{inset:25px;border-color:rgba(214,182,108,.12)}
+    .glow{position:absolute;width:min(80vw,620px);aspect-ratio:1;border-radius:50%;background:rgba(181,141,58,.08);filter:blur(85px);top:12%;left:50%;transform:translateX(-50%);pointer-events:none}
+    .content{position:relative;z-index:1;text-align:center;width:min(100%,680px);padding:55px 20px 48px;animation:appear 1.2s ease both}
+    .eyebrow{font:600 11px/1.5 Arial,sans-serif;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin:0 0 27px}
+    .rule{height:1px;width:74px;margin:0 auto 23px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+    .name{font-size:clamp(52px,13vw,104px);line-height:.92;font-weight:400;letter-spacing:.055em;margin:0;color:var(--gold-light);text-shadow:0 0 35px rgba(214,182,108,.12)}
+    .turns{font:500 13px/1.5 Arial,sans-serif;letter-spacing:.48em;text-transform:uppercase;color:#f4ead0;margin:21px 0 0;padding-left:.48em}
+    .number{font-size:clamp(120px,35vw,228px);line-height:.78;font-weight:400;color:transparent;-webkit-text-stroke:1px rgba(214,182,108,.88);margin:21px 0 20px;letter-spacing:-.07em;text-shadow:0 0 50px rgba(214,182,108,.13);font-variant-numeric:lining-nums}
+    .intro{font-size:clamp(16px,4vw,20px);line-height:1.65;color:#e7e1d4;margin:0 auto 29px;max-width:430px}
+    .date{display:flex;align-items:center;justify-content:center;gap:18px;margin:0 auto 24px;color:var(--gold-light);font:500 13px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+    .date span{height:34px;width:1px;background:linear-gradient(transparent,var(--gold),transparent)}
+    .countdown{display:flex;justify-content:center;gap:clamp(12px,4vw,26px);margin:0 auto 34px}
+    .unit{min-width:52px;color:var(--gold)}
+    .unit strong{display:block;font:400 28px/1.1 Georgia,serif;color:#fff8e8}
+    .unit small{display:block;margin-top:7px;font:9px Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+    .buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+    .button{min-width:188px;padding:15px 20px;border:1px solid var(--gold);text-decoration:none;color:#f5e5b7;font:600 10px Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;transition:.25s ease}
+    .button.primary{background:linear-gradient(135deg,#d6b66c,#a77c2f);color:#10100e;border:1px solid #e7cf91}
+    .button:hover{transform:translateY(-2px);box-shadow:0 7px 24px #d6b66c26}
+    .venue{font:11px/1.7 Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:28px 0 0}
+    .venue b{display:block;color:#f3dfa5;font:400 17px Georgia,serif;letter-spacing:.08em;margin-top:6px}
+    .dress{display:inline-block;color:#c7bda8;border-top:1px solid #d6b66c55;margin-top:21px;padding-top:16px;font:10px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+    .footer{margin:36px 0 0;color:#716b5d;font:9px Arial,sans-serif;letter-spacing:.3em;text-transform:uppercase}
+    .modal{position:fixed;inset:0;z-index:5;display:none;place-items:center;padding:18px;background:rgba(0,0,0,.82);backdrop-filter:blur(8px)}
+    .modal.open{display:grid}
+    .form-card{position:relative;width:min(100%,480px);max-height:min(92svh,780px);overflow:auto;padding:34px 26px 26px;border:1px solid #d6b66c77;background:linear-gradient(145deg,#171612,#0b0b0a);box-shadow:0 20px 70px #000a;text-align:left}
+    .form-card h2{margin:0;color:var(--gold-light);font-size:29px;font-weight:400;text-align:center}
+    .form-intro{margin:10px 0 23px;color:#c8c1b2;font:13px/1.6 Arial,sans-serif;text-align:center}
+    .close-modal{position:absolute;right:14px;top:12px;border:0;background:transparent;color:#e9d59d;font-size:25px;cursor:pointer}
+    .field{display:block;margin:0 0 14px;color:#e7decb;font:10px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+    .field input,.field select,.field textarea{display:block;width:100%;margin-top:7px;padding:12px 13px;border:1px solid #d6b66c55;border-radius:0;background:#0d0d0c;color:#fff;font:14px Arial,sans-serif;letter-spacing:normal;text-transform:none;outline:none}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold-light);box-shadow:0 0 0 2px #d6b66c22}
+    .field textarea{min-height:70px;resize:vertical}
+    .form-submit{width:100%;margin-top:4px;cursor:pointer}
+    .form-submit:disabled{opacity:.62;cursor:wait;transform:none}
+    .form-status{min-height:24px;margin:13px 0 0;color:#e8d49b;font:13px/1.5 Arial,sans-serif;text-align:center}
+    .form-status.error{color:#ffb5a9}
+    .privacy-note{margin:13px 0 0;color:#8f897d;font:11px/1.5 Arial,sans-serif;text-align:center}
+    @keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:420px){.page{padding:17px}.page:before{inset:12px}.page:after{inset:18px}.content{padding:42px 8px}.button{min-width:160px}.venue{margin-top:23px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="glow" aria-hidden="true"></div>
+    <section class="content" aria-label="Invitación a los 18 de Juani">
+      <p class="eyebrow">Una noche para recordar</p>
+      <div class="rule" aria-hidden="true"></div>
+      <h1 class="name">Juani</h1>
+      <p class="turns">Mis</p>
+      <div class="number" aria-label="18">18</div>
+      <p class="intro">Llegó el momento de celebrar una nueva etapa.<br>Quiero compartir esta noche especial con vos.</p>
+      <div class="date"><div>Sábado<br><strong>5 · 12 · 2026</strong></div><span aria-hidden="true"></span><div>Desde<br><strong>las 21 hs</strong></div></div>
+      <div class="countdown" aria-label="Cuenta regresiva">
+        <div class="unit"><strong id="days">--</strong><small>Días</small></div>
+        <div class="unit"><strong id="hours">--</strong><small>Horas</small></div>
+        <div class="unit"><strong id="minutes">--</strong><small>Minutos</small></div>
+        <div class="unit"><strong id="seconds">--</strong><small>Segundos</small></div>
+      </div>
+      <div class="buttons">
+        <button class="button primary" id="openQrForm" type="button">Confirmar y recibir QR</button>
+        <a class="button" href="https://www.google.com/maps/search/?api=1&query=Casa+Viale+Eventos+Campana" target="_blank" rel="noopener">Cómo llegar</a>
+      </div>
+      <p class="privacy-note">Completá tus datos para recibir por email el QR que vas a presentar en la entrada.</p>
+      <p class="venue">Te espero en<b>Casa Viale Eventos</b></p>
+      <div class="dress">Dress code · Elegante  </div>
+      <p class="footer">Nos vemos para celebrar</p>
+    </section>
+  </main>
+  <div class="modal" id="qrModal" aria-hidden="true">
+    <section class="form-card" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+      <button class="close-modal" id="closeQrForm" type="button" aria-label="Cerrar">×</button>
+      <h2 id="formTitle">Confirmá tu asistencia</h2>
+      <p class="form-intro">Completá los datos del titular. Te enviaremos el QR de ingreso al correo indicado.</p>
+      <form id="qrForm">
+        <label class="field">Nombre y apellido
+          <input name="nombre" autocomplete="name" required maxlength="100">
+        </label>
+        <label class="field">DNI
+          <input name="dni" inputmode="numeric" autocomplete="off" pattern="[0-9.]{7,12}" required maxlength="12" title="Ingresá tu DNI, solo números">
+        </label>
+        <label class="field">Email donde recibirás el QR
+          <input name="email" type="email" autocomplete="email" required maxlength="150">
+        </label>
+        <label class="field">Cantidad de personas del grupo
+          <input name="cantidad" type="number" inputmode="numeric" min="1" step="1" value="1" required>
+        </label>
+        <label class="field">Restricciones alimentarias (opcional)
+          <textarea name="restricciones" maxlength="250" placeholder="Si no hay, dejá este campo vacío"></textarea>
+        </label>
+        <button class="button primary form-submit" id="submitQrForm" type="submit">Enviar y recibir mi QR</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        <p class="privacy-note">El QR se emite para el grupo completo indicado en el formulario.</p>
+      </form>
+    </section>
+  </div>
+  <script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzqWBjicIArLMAskM3y_G3MxxQgl38CoSsfUNAt2ckVHc5yO881VuyM0h6cGqovCXk5/exec';
+    const target = new Date('2026-12-05T21:00:00-03:00').getTime();
+    const fields = ['days','hours','minutes','seconds'].map(id => document.getElementById(id));
+    function tick(){
+      let left = Math.max(0, target - Date.now());
+      const values = [Math.floor(left/86400000),Math.floor(left%86400000/3600000),Math.floor(left%3600000/60000),Math.floor(left%60000/1000)];
+      fields.forEach((el,i)=>el.textContent=String(values[i]).padStart(2,'0'));
+    }
+    tick(); setInterval(tick,1000);
+
+    const qrModal = document.getElementById('qrModal');
+    const qrForm = document.getElementById('qrForm');
+    const formStatus = document.getElementById('formStatus');
+    const submitQrForm = document.getElementById('submitQrForm');
+    let qrRequestPending = false;
+    let qrRequestTimer = null;
+
+    function openQrModal(){
+      qrModal.classList.add('open');
+      qrModal.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+      qrForm.elements.nombre.focus();
+    }
+    function closeQrModal(){
+      if(qrRequestPending) return;
+      qrModal.classList.remove('open');
+      qrModal.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+    }
+    document.getElementById('openQrForm').addEventListener('click',openQrModal);
+    document.getElementById('closeQrForm').addEventListener('click',closeQrModal);
+    qrModal.addEventListener('click',event=>{if(event.target===qrModal) closeQrModal();});
+    document.addEventListener('keydown',event=>{if(event.key==='Escape') closeQrModal();});
+
+    function finishQrRequest(){
+      qrRequestPending=false;
+      submitQrForm.disabled=false;
+      submitQrForm.textContent='Enviar y recibir mi QR';
+      clearTimeout(qrRequestTimer);
+    }
+    function submitToQrSystem(values){
+      if(qrRequestPending) return;
+      qrRequestPending=true;
+      submitQrForm.disabled=true;
+      submitQrForm.textContent='Enviando…';
+      formStatus.classList.remove('error');
+      formStatus.textContent='Guardando tus datos y generando el QR…';
+
+      const callbackName='juaniQrCallback_'+Date.now()+'_'+Math.floor(Math.random()*10000);
+      const params=new URLSearchParams({...values,callback:callbackName});
+      const script=document.createElement('script');
+      let settled=false;
+      const cleanup=()=>{
+        clearTimeout(qrRequestTimer);
+        if(script.parentNode) script.parentNode.removeChild(script);
+        delete window[callbackName];
+      };
+      const settle=(data)=>{
+        if(settled) return;
+        settled=true;
+        cleanup();
+        finishQrRequest();
+        if(data && data.ok){
+          formStatus.classList.remove('error');
+          formStatus.textContent='¡Listo! Te enviamos el QR al email indicado. Revisá también correo no deseado.';
+          qrForm.reset();
+        }else{
+          formStatus.classList.add('error');
+          formStatus.textContent=(data && data.mensaje) || 'No se pudo registrar. Revisá tus datos e intentá nuevamente.';
+        }
+      };
+      window[callbackName]=settle;
+      script.onerror=()=>settle({ok:false,mensaje:'No se pudo conectar con el sistema QR. Intentá de nuevo en unos minutos.'});
+      script.src=SCRIPT_URL+'?'+params.toString();
+      qrRequestTimer=setTimeout(()=>{
+        if(settled) return;
+        settled=true;
+        cleanup();
+        finishQrRequest();
+        formStatus.classList.add('error');
+        formStatus.textContent='El sistema está tardando. Antes de volver a enviar, revisá tu correo por si el QR ya llegó.';
+      },15000);
+      document.body.appendChild(script);
+    }
+    qrForm.addEventListener('submit',event=>{
+      event.preventDefault();
+      if(qrRequestPending) return;
+      const formData=new FormData(qrForm);
+      const dni=String(formData.get('dni')||'').replace(/\D/g,'');
+      if(dni.length<7){
+        formStatus.classList.add('error');
+        formStatus.textContent='Revisá el DNI: debe tener al menos 7 números.';
+        return;
+      }
+      submitToQrSystem({
+        nombre:String(formData.get('nombre')||'').trim(),
+        dni,
+        email:String(formData.get('email')||'').trim(),
+        cantidad:String(formData.get('cantidad')||'1'),
+        restricciones:String(formData.get('restricciones')||'').trim()
+      });
+    });
+  </script>
+</body>
+</html>

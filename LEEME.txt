@@ -1,0 +1,23 @@
+INVITACIÓN JUANI · MIS 18
+
+CONTENIDO DEL PROYECTO
+- index.html: textos, secciones, formulario, galería y alias.
+- style.css: colores, tipografías, tamaños y diseño adaptable a celular.
+- script.js: contador, dos carruseles, copiar alias y conexión del formulario con el sistema QR.
+- imagenes/: foto principal y cinco fotos distribuidas en dos carruseles.
+
+PARA CAMBIAR DATOS
+- Nombre, fecha, horario, lugar, frases, alias y textos: editar index.html.
+- Fecha de la cuenta regresiva: cambiar FECHA_EVENTO al comienzo de script.js.
+- Colores y presentación: editar las variables al comienzo de style.css.
+- Fotos: reemplazar los WebP dentro de imagenes manteniendo exactamente sus nombres.
+
+PUBLICACIÓN EN NETLIFY
+- Descomprimí el ZIP. index.html tiene que quedar directamente en la raíz que se publica, junto a style.css, script.js e imagenes/.
+- No subas una carpeta contenedora que deje index.html un nivel más abajo; eso genera el error 404 en la dirección principal.
+- Esta carpeta es la invitación web. La recepción QR con videos va en otro proyecto.
+
+DATOS INCLUIDOS
+Juani · Mis 18 · sábado 5 de diciembre de 2026 · 21:00 hs
+Casa Viale Eventos, Campana · Dress code: Elegante Sport
+Alias para regalos: JUANIMAR.18
